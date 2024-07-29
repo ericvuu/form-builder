@@ -1,0 +1,39 @@
+.App {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.form-builder {
+  display: flex;
+  gap: 20px;
+}
+
+.field-list {
+  width: 200px;
+}
+
+.field {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  cursor: grab;
+}
+
+.form-container {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  min-height: 300px;
+}
+
+.field-item {
+  margin-bottom: 10px;
+}
+
+.preview {
+  margin-top: 20px;
+}
+
+button {
+  margin-left: 10px;
+}
