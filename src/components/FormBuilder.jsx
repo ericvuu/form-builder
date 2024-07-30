@@ -44,6 +44,14 @@ const FormBuilder = () => {
     setFields(updatedFields);
   }, [fields]);
 
+  const updateField = (id, updatedField) => {
+    setFields((prevFields) =>
+      prevFields.map((field) =>
+        field.id === id ? { ...field, ...updatedField } : field
+      )
+    );
+  };
+
   return (
     <div
       ref={drop}
@@ -64,6 +72,7 @@ const FormBuilder = () => {
             field={field}
             moveField={moveField}
             removeField={removeField}
+            updateField={updateField}
           />
         ))}
       </div>

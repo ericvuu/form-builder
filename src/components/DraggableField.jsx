@@ -2,10 +2,10 @@ import React from 'react';
 import { useDrag } from 'react-dnd';
 import PropTypes from 'prop-types';
 
-const DraggableField = ({ id, type, label, options = [] }) => {
+const DraggableField = ({ id, type, label, options = [], text }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'FIELD',
-    item: { id, type, label, options },
+    item: { id, type, label, options, text },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
@@ -31,6 +31,20 @@ const DraggableField = ({ id, type, label, options = [] }) => {
           {options.join(', ')}
         </div>
       )}
+      {type === 'paragraph' && text && (
+        <div style={{ marginTop: '4px', fontSize: '0.9em', color: '#555' }}>
+          {text}
+        </div>
+      )}
+      {type === 'checkbox-group' && options.length > 0 && (
+        <div style={{ marginTop: '4px' }}>
+          {options.map((option, index) => (
+            <label key={index} style={{ display: 'block' }}>
+              <input type="checkbox" disabled aria-label={`Checkbox for ${option}`} /> {option}
+            </label>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
@@ -40,6 +54,7 @@ DraggableField.propTypes = {
   type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string),
+  text: PropTypes.string,
 };
 
 export default DraggableField;

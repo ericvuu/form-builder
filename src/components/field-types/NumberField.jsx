@@ -1,9 +1,9 @@
 import React from 'react';
 
-const NumberField = ({ label }) => (
+const NumberField = ({ label, placeholder }) => (
   <div>
     <label>{label}</label>
-    <input type="number" placeholder={label} />
+    <input type="number" placeholder={placeholder} />
   </div>
 );
 

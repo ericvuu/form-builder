@@ -1,9 +1,9 @@
 import React from 'react';
 
-const EmailField = ({ label }) => (
+const EmailField = ({ label, placeholder }) => (
   <div>
     <label>{label}</label>
-    <input type="email" placeholder={label} />
+    <input type="email" placeholder={placeholder} />
   </div>
 );
 
