@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import PropTypes from 'prop-types';
 import TextField from './field-types/TextField';
+import DateField from './field-types/DateField';
+import Telephone from './field-types/Telephone';
 import NumberField from './field-types/NumberField';
 import EmailField from './field-types/EmailField';
 import TextareaField from './field-types/TextareaField';
@@ -9,6 +11,7 @@ import SelectField from './field-types/SelectField';
 import Paragraph from './field-types/Paragraph';
 import CheckboxGroup from './field-types/CheckboxGroup';
 import EditFieldModal from './EditFieldModal';
+
 
 const ItemTypes = {
   FIELD: 'FIELD',
@@ -63,6 +66,8 @@ const DraggableFieldComponent = ({ field, index, moveField, removeField, updateF
       >
         <div>
           {field.type === 'text' && <TextField label={field.label} placeholder={field.placeholder} />}
+          {field.type === 'date' && <DateField label={field.label} />}
+          {field.type === 'tel' && <Telephone label={field.label} />}
           {field.type === 'number' && <NumberField label={field.label} />}
           {field.type === 'email' && <EmailField label={field.label} />}
           {field.type === 'textarea' && <TextareaField label={field.label} />}

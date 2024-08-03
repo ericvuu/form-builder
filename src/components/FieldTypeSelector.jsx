@@ -7,6 +7,8 @@ const FieldTypeSelector = () => {
       <h2>Field Types</h2>
       <DraggableField id="paragraph" type="paragraph" label="Paragraph Field" />
       <DraggableField id="text" type="text" label="Text Field" />
+      <DraggableField id="telephone" type="tel" label="Telephone Field" />
+      <DraggableField id="date" type="date" label="Date Field" />
       <DraggableField id="number" type="number" label="Number Field" />
       <DraggableField id="email" type="email" label="Email Field" />
       <DraggableField id="textarea" type="textarea" label="Textarea Field" />
