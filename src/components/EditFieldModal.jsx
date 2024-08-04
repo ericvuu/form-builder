@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import CheckboxGroup from './field-types/CheckboxGroup';
+import "../assets/css/EditFieldModel.css";
 
 const EditFieldModal = ({ field, onClose, onSave }) => {
   const [updatedField, setUpdatedField] = useState({ ...field });
@@ -51,17 +52,7 @@ const EditFieldModal = ({ field, onClose, onSave }) => {
 
   return (
     <div
-      style={{
-        position: 'fixed',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        backgroundColor: 'white',
-        padding: '20px',
-        borderRadius: '8px',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-      }}
-    >
+      className="edit-field-model">
       <h3>Edit Field</h3>
       <label>
         Label:

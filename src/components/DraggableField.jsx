@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
 import PropTypes from 'prop-types';
+import "../assets/css/DraggableField.css";
 
 const DraggableField = ({ id, type, label, options = [], text }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -13,16 +14,10 @@ const DraggableField = ({ id, type, label, options = [], text }) => {
 
   return (
     <div
+      className="draggable-field"
       ref={drag}
       style={{
         opacity: isDragging ? 0.5 : 1,
-        border: '1px solid black',
-        padding: '8px',
-        backgroundColor: 'white',
-        cursor: 'move',
-        marginBottom: '10px',
-        borderRadius: '4px',
-        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
       }}
     >
       <strong>{label}</strong>

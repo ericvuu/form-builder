@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { useDrop } from 'react-dnd';
 import DraggableFieldComponent from './DraggableFieldComponent';
+import "../assets/css/FormBuilder.css";
 
 const ItemTypes = {
   FIELD: 'FIELD',
@@ -54,13 +55,10 @@ const FormBuilder = () => {
 
   return (
     <div
+      className="form-container"
       ref={drop}
       style={{
-        minHeight: '300px',
-        width: '100%',
-        border: '2px solid black',
         backgroundColor: isOver ? 'lightgreen' : 'white',
-        padding: '16px',
       }}
     >
       {isOver ? 'Release to drop' : 'Drag fields here to build your form'}
