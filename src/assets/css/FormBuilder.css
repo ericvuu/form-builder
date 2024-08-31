@@ -1,3 +1,14 @@
 .form-builder {
   display: flex;
+  width: 100%;
+}
+
+.form-container {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #000000;
+  min-height: 300px;
+  border-radius: 4px;
+  box-shadow: "0 2px 4px rgba(0, 0, 0, 0.1)";
+  width: 100%;
 }

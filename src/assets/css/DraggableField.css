@@ -1,9 +1,36 @@
 .draggable-field {
-  border: 1px solid #000000;
   padding: 8px;
-  background-color: #ffffff;
-  cursor: move;
+  border: 1px solid black;
   margin-bottom: 10px;
+  background-color: white;
+  cursor: move;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.draggable-field.two-column {
+  grid-template-columns: 1fr 1fr;
+}
+
+.field-content {
+  grid-column: 1 / -1;
+}
+
+.field-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.two-column .field-content {
+  grid-column: 1 / 2;
+}
+
+.two-column .field-controls {
+  grid-column: 2 / 3;
+  justify-content: flex-start;
 }

@@ -8,7 +8,7 @@ import "./App.css"
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="form-builder container">
+      <div className="form-builder">
         <FieldTypeSelector />
         <FormBuilder />
       </div>
