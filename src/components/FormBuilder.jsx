@@ -7,8 +7,7 @@ const ItemTypes = {
   FIELD: "FIELD",
 };
 
-const FormBuilder = ({ isTwoColumn }) => {
-  const [fields, setFields] = useState([]);
+const FormBuilder = ({ isTwoColumn, fields, setFields }) => {
 
   const [{ isOver }, drop] = useDrop({
     accept: ItemTypes.FIELD,
@@ -72,14 +71,7 @@ const FormBuilder = ({ isTwoColumn }) => {
         >
           {isOver ? "Release to drop" : "Drag fields here to build your form"}
         </span>
-        <div
-          style={{
-            marginTop: "10px",
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "10px",
-          }}
-        >
+        <div className="form-field-container">
           {fields.map((field, index) => (
             <div
               key={field.id}
