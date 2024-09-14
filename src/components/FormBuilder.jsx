@@ -7,9 +7,8 @@ const ItemTypes = {
   FIELD: "FIELD",
 };
 
-const FormBuilder = () => {
+const FormBuilder = ({ isTwoColumn }) => {
   const [fields, setFields] = useState([]);
-  const [isTwoColumn, setIsTwoColumn] = useState(false);
 
   const [{ isOver }, drop] = useDrop({
     accept: ItemTypes.FIELD,
@@ -57,28 +56,22 @@ const FormBuilder = () => {
     );
   };
 
-  const toggleLayout = () => {
-    setIsTwoColumn((prev) => !prev);
-  };
-
   return (
     <div className="form-builder">
-      <button
-        onClick={toggleLayout}
-        style={{ marginBottom: "10px", padding: "5px 10px" }}
-      >
-        {isTwoColumn ? "Switch to Single Column" : "Switch to Two Columns"}
-      </button>
       <div
         className="form-container"
         ref={drop}
         style={{
-          backgroundColor: isOver ? "lightgreen" : "white",
-          padding: "10px",
-          border: "1px solid #ccc",
+          backgroundColor: isOver ? "#424242" : "#ffffff",
         }}
       >
-        {isOver ? "Release to drop" : "Drag fields here to build your form"}
+        <span
+          style={{
+            color: isOver ? "#ffffff" : "#000000",
+          }}
+        >
+          {isOver ? "Release to drop" : "Drag fields here to build your form"}
+        </span>
         <div
           style={{
             marginTop: "10px",

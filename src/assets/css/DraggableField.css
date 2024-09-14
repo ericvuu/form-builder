@@ -34,3 +34,7 @@
   grid-column: 2 / 3;
   justify-content: flex-start;
 }
+
+.draggable-field-btn-container .btn-black {
+  margin-right: 15px;
+}

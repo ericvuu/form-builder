@@ -95,33 +95,11 @@ const DraggableFieldComponent = ({
             />
           )}
         </div>
-        <div>
-          <button
-            onClick={() => setIsEditing(true)}
-            style={{
-              marginLeft: "10px",
-              padding: "4px 8px",
-              border: "none",
-              backgroundColor: "blue",
-              color: "white",
-              cursor: "pointer",
-              borderRadius: "4px",
-            }}
-          >
+        <div className="draggable-field-btn-container">
+          <button className="btn-black" onClick={() => setIsEditing(true)}>
             Edit
           </button>
-          <button
-            onClick={() => removeField(field.id)}
-            style={{
-              marginLeft: "10px",
-              padding: "4px 8px",
-              border: "none",
-              backgroundColor: "red",
-              color: "white",
-              cursor: "pointer",
-              borderRadius: "4px",
-            }}
-          >
+          <button className="btn-white" onClick={() => removeField(field.id)}>
             Remove
           </button>
         </div>

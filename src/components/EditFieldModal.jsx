@@ -51,50 +51,51 @@ const EditFieldModal = ({ field, onClose, onSave }) => {
   };
 
   return (
-    <div
-      className="edit-field-model">
+    <div className="edit-field-model">
       <h3>Edit Field</h3>
       <label>
         Label:
         <input
           type="text"
           name="label"
-          value={updatedField.label || ''}
+          value={updatedField.label || ""}
           onChange={handleChange}
         />
       </label>
-      {updatedField.type === 'text' && (
+      {updatedField.type === "text" && (
         <>
           <label>
             Placeholder:
             <input
               type="text"
               name="placeholder"
-              value={updatedField.placeholder || ''}
+              value={updatedField.placeholder || ""}
               onChange={handleChange}
             />
           </label>
         </>
       )}
-      {updatedField.type === 'select' && (
+      {updatedField.type === "select" && (
         <>
           <label>
             Options (comma separated):
             <input
               type="text"
               name="options"
-              value={(updatedField.options || []).join(', ')}
-              onChange={(e) => handleChange({
-                target: {
-                  name: 'options',
-                  value: e.target.value.split(',').map(opt => opt.trim()),
-                }
-              })}
+              value={(updatedField.options || []).join(", ")}
+              onChange={(e) =>
+                handleChange({
+                  target: {
+                    name: "options",
+                    value: e.target.value.split(",").map((opt) => opt.trim()),
+                  },
+                })
+              }
             />
           </label>
         </>
       )}
-      {updatedField.type === 'checkbox-group' && (
+      {updatedField.type === "checkbox-group" && (
         <>
           <div>
             <label>Options:</label>
@@ -104,36 +105,48 @@ const EditFieldModal = ({ field, onClose, onSave }) => {
               onChange={handleCheckboxGroupChange}
             />
             <button onClick={addCheckboxOption}>Add Option</button>
-            {updatedField.options && updatedField.options.map((option, index) => (
-              <div key={index} style={{ marginBottom: '8px' }}>
-                <input
-                  type="text"
-                  value={option}
-                  onChange={(e) => handleOptionChange(index, e.target.value)}
-                />
-                <button onClick={() => removeCheckboxOption(index)} style={{ marginLeft: '8px' }}>
-                  Remove
-                </button>
-              </div>
-            ))}
+            {updatedField.options &&
+              updatedField.options.map((option, index) => (
+                <div key={index} style={{ marginBottom: "8px" }}>
+                  <input
+                    type="text"
+                    value={option}
+                    onChange={(e) => handleOptionChange(index, e.target.value)}
+                  />
+                  <button
+                    onClick={() => removeCheckboxOption(index)}
+                    style={{ marginLeft: "8px" }}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
           </div>
         </>
       )}
-      {updatedField.type === 'paragraph' && (
+      {updatedField.type === "paragraph" && (
         <>
           <label>
             Text:
             <textarea
               name="text"
-              value={updatedField.text || ''}
+              value={updatedField.text || ""}
               onChange={handleChange}
             />
           </label>
         </>
       )}
-      <div style={{ marginTop: '20px' }}>
-        <button onClick={handleSave} style={{ marginRight: '10px' }}>Save</button>
-        <button onClick={onClose}>Cancel</button>
+      <div style={{ marginTop: "20px" }}>
+        <button
+          className="btn-black"
+          onClick={handleSave}
+          style={{ marginRight: "10px" }}
+        >
+          Save
+        </button>
+        <button className="btn-white" onClick={onClose}>
+          Cancel
+        </button>
       </div>
     </div>
   );
