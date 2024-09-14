@@ -52,16 +52,20 @@ const EditFieldModal = ({ field, onClose, onSave }) => {
 
   return (
     <div className="edit-field-model">
-      <h3>Edit Field</h3>
-      <label>
-        Label:
-        <input
-          type="text"
-          name="label"
-          value={updatedField.label || ""}
-          onChange={handleChange}
-        />
-      </label>
+      <h3 style={{ textTransform: "capitalize" }}>Edit {updatedField.type}</h3>
+      {updatedField.type !== "paragraph" && (
+        <>
+          <label>
+            Label:
+            <input
+              type="text"
+              name="label"
+              value={updatedField.label || ""}
+              onChange={handleChange}
+            />
+          </label>
+        </>
+      )}
       {updatedField.type === "text" && (
         <>
           <label>
@@ -126,14 +130,11 @@ const EditFieldModal = ({ field, onClose, onSave }) => {
       )}
       {updatedField.type === "paragraph" && (
         <>
-          <label>
-            Text:
-            <textarea
-              name="text"
-              value={updatedField.text || ""}
-              onChange={handleChange}
-            />
-          </label>
+          <textarea
+            name="text"
+            value={updatedField.text || ""}
+            onChange={handleChange}
+          />
         </>
       )}
       <div style={{ marginTop: "20px" }}>

@@ -2,9 +2,7 @@ import React from 'react';
 
 const Paragraph = ({ text }) => (
   <div>
-   <p>
-    {text}
-   </p>
+    <p>{text ?? "Paragraph"}</p>
   </div>
 );
 
