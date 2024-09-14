@@ -73,8 +73,39 @@
 }
 
 .form-field-container {
-   margin-top: 10px;
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #222222;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+  display: block;
 }

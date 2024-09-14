@@ -14,59 +14,64 @@ const FormPreview = ({ fields, isTwoColumn }) => {
   return (
     <div className="form-preview">
       <div className="form-preview-container">
-        <div className="form-field-container">
-          {fields.map((field) => (
-            <div
-              key={field.id}
-              className="form-preview-field"
-              style={{
-                flex: isTwoColumn ? "1 0 calc(40% - 10px)" : "1 0 100%",
-              }}
-            >
-              {field.type === "text" && (
-                <TextField
-                  label={field.label}
-                  placeholder={field.placeholder}
-                  disabled
-                />
-              )}
-              {field.type === "date" && (
-                <DateField label={field.label} disabled />
-              )}
-              {field.type === "tel" && (
-                <Telephone label={field.label} disabled />
-              )}
-              {field.type === "number" && (
-                <NumberField label={field.label} disabled />
-              )}
-              {field.type === "email" && (
-                <EmailField label={field.label} disabled />
-              )}
-              {field.type === "textarea" && (
-                <TextareaField
-                  label={field.label}
-                  placeholder={field.placeholder}
-                  disabled
-                />
-              )}
-              {field.type === "select" && (
-                <SelectField
-                  label={field.label}
-                  options={field.options}
-                  disabled
-                />
-              )}
-              {field.type === "paragraph" && <Paragraph text={field.text} />}
-              {field.type === "checkbox-group" && (
-                <CheckboxGroup
-                  options={field.options || []}
-                  selectedOptions={field.selectedOptions || []}
-                  disabled
-                />
-              )}
+        <form className="form" action="#">
+          <div className="form-field-container">
+            {fields.map((field) => (
+              <div
+                key={field.id}
+                className="form-preview-field"
+                style={{
+                  flex: isTwoColumn ? "1 0 calc(40% - 10px)" : "1 0 100%",
+                }}
+              >
+                {field.type === "text" && (
+                  <TextField
+                    label={field.label}
+                    placeholder={field.placeholder}
+                    disabled
+                  />
+                )}
+                {field.type === "date" && (
+                  <DateField label={field.label} disabled />
+                )}
+                {field.type === "tel" && (
+                  <Telephone label={field.label} disabled />
+                )}
+                {field.type === "number" && (
+                  <NumberField label={field.label} disabled />
+                )}
+                {field.type === "email" && (
+                  <EmailField label={field.label} disabled />
+                )}
+                {field.type === "textarea" && (
+                  <TextareaField
+                    label={field.label}
+                    placeholder={field.placeholder}
+                    disabled
+                  />
+                )}
+                {field.type === "select" && (
+                  <SelectField
+                    label={field.label}
+                    options={field.options}
+                    disabled
+                  />
+                )}
+                {field.type === "paragraph" && <Paragraph text={field.text} />}
+                {field.type === "checkbox-group" && (
+                  <CheckboxGroup
+                    options={field.options || []}
+                    selectedOptions={field.selectedOptions || []}
+                    disabled
+                  />
+                )}
+              </div>
+            ))}
+            <div className="submit-container">
+              <input className="btn-black" type="submit" value="Submit"></input>
             </div>
-          ))}
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   );
