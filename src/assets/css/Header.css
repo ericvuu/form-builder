@@ -53,6 +53,10 @@ nav ul li {
     padding: .5rem 0;
   }
   nav ul {
-    gap: .5rem;
+    gap: 0;
+  }
+
+  .footer-links ul {
+    padding-left: 0;
   }
 }

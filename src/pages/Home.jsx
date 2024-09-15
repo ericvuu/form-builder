@@ -94,14 +94,14 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="cta">
+           <div className="cta">
         <h2>Try building refreshingly different forms for free</h2>
         <p>Our Free Plan lets you: 1. Create unlimited forms 2. Access 3,000+ templates 3. Start getting response</p>
         <div className="cta-demo-button">
           <Link to="/demo" className="btn-black">
             Get Started
           </Link>
+        </div>
         </div>
       </div>
     </>
