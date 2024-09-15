@@ -26,11 +26,11 @@ p {
   line-height: 1.6;
 }
 
-.hero-demo-button {
+.hero-demo-button, .cta-demo-button {
   margin-top: 30px;
 }
 
-.hero-demo-button .btn-black {
+.hero-demo-button .btn-black , .cta-demo-button .btn-black{
   display: inline-block;
   padding: 15px 30px;
   font-size: 1.2rem;
@@ -41,7 +41,7 @@ p {
   transition: background-color 0.3s;
 }
 
-.hero-demo-button .btn-black:hover {
+.hero-demo-button .btn-black:hover, .cta-demo-button .btn-black:hover  {
   background-color: #555;
 }
 
@@ -53,44 +53,70 @@ p {
 }
 
 .browser-window {
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
-    border: 2px solid rgba(55, 53, 47, 0.09);
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  border: 2px solid rgba(55, 53, 47, 0.09);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
 }
 
-.browser-bar{
-    display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    align-items: center;
-    border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+.browser-bar {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 .browser-buttons {
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    padding: 16px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 16px;
 }
 
 .browser-button {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgb(223, 223, 222);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgb(223, 223, 222);
 }
 
 .browser-buttons > :not(:last-child) {
-    margin-right: 8px;
+  margin-right: 8px;
+}
+
+.integration {
+  padding: 0 0 3rem 0;
+}
+
+.partnerships h2, .integration h2, .cta h2 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.cta {
+  text-align: center;
+  padding: 3rem 0 8rem 0;
 }
 
 @media (min-width: 1200px) {
   .browser-window {
     min-height: 703px;
+    margin: 8rem 0;
   }
+}
+
+.partnerships-logos, .integration-logos {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px auto 0px;
+  max-width: 700px;
+}
+
+.partnership-logo > :not(:last-child), .integration-logo > :not(:last-child){
+  margin-right: 15px;
 }
 
 @media (max-width: 1280px) {
@@ -136,5 +162,13 @@ p {
     max-width: 100%;
     margin-left: 0;
     margin-top: 20px;
+  }
+
+  .partnerships-logos, .integration-logos {
+   flex-wrap: wrap;
+   justify-content: center;
+  }
+  .partnership-logo, .integration-logo {
+    padding: 15px;
   }
 }
