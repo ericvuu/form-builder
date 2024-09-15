@@ -1,52 +1,22 @@
-import React, { useState } from "react";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import FormBuilder from "./components/FormBuilder";
-import FieldTypeSelector from "./components/FieldTypeSelector";
-import FormColumnToggle from "./components/FormColumnToggle";
-import FormPreview from "./components/FormPreview";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Header from './components/Header';
+import Home from './pages/Home';
+import Demo from './pages/Demo';
 import "./App.css";
 
 function App() {
-  const [isTwoColumn, setIsTwoColumn] = useState(false);
-  const [isPreview, setIsPreview] = useState(false);
-  const [fields, setFields] = useState([]);
-
-  const toggleLayout = () => {
-    setIsTwoColumn((prev) => !prev);
-  };
-
-  const togglePreview = () => {
-    setIsPreview((prev) => !prev);
-  };
-
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <div className="form-builder-page">
-        <div className="form-builder-wrapper">
-          <div className="builder-controls">
-            <button onClick={togglePreview} className="btn-preview">
-              {isPreview ? "Back to Edit" : "Preview Form"}
-            </button>
-            <FormColumnToggle
-              isTwoColumn={isTwoColumn}
-              toggleLayout={toggleLayout}
-            />
-            <FieldTypeSelector />
-          </div>
-          {isPreview ? (
-            <FormPreview fields={fields} isTwoColumn={isTwoColumn} />
-          ) : (
-            <FormBuilder
-              isTwoColumn={isTwoColumn}
-              fields={fields}
-              setFields={setFields}
-            />
-          )}
-        </div>
+    <Router>
+      <div>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/demo" element={<Demo />} />
+        </Routes>
       </div>
-    </DndProvider>
+    </Router>
   );
 }
 
