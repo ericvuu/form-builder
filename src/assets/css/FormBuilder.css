@@ -1,9 +1,6 @@
 .form-builder-page {
   position: relative;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .form-builder-wrapper {
@@ -58,4 +55,15 @@
 .column-toggle:focus {
   outline: none;
   box-shadow: 0 0 0 2px #ffffff;
+}
+
+
+@media (max-width: 768px) {
+  .builder-controls {
+    width: 35%;
+    margin-bottom: 1rem;
+  }
+  .form-container {
+    width: 40%;
+  }
 }
