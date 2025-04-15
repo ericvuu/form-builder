@@ -6,7 +6,7 @@ import FieldTypeSelector from "../components/FieldTypeSelector";
 import FormColumnToggle from "../components/FormColumnToggle";
 import FormPreview from "../components/FormPreview";
 
-const exportForm = (fields) => {
+const exportForm = (fields, isTwoColumn) => {
   const htmlFields = fields
     .map((field) => {
       switch (field.type) {
@@ -67,11 +67,32 @@ const exportForm = (fields) => {
   <title>Exported Form</title>
   <style>
     body { font-family: sans-serif; padding: 2rem; }
-    form > * { display: block; margin-bottom: 1rem; }
-    input, textarea, select { width: 100%; padding: 8px; font-size: 1rem; }
-    label { font-weight: bold; }
-    fieldset { margin-bottom: 1rem; }
-    .submit-container { margin-top: 2rem; }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    form > * {
+      flex: 1 1 ${isTwoColumn ? "calc(50% - 1rem)" : "100%"};
+      box-sizing: border-box;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+    }
+    fieldset {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    .submit-container {
+      flex: 1 1 100%;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
@@ -159,8 +180,10 @@ const Demo = () => {
               toggleLayout={toggleLayout}
             />
             <FieldTypeSelector />
-
-            <button onClick={() => exportForm(fields)} className="btn-white">
+            <button
+              onClick={() => exportForm(fields, isTwoColumn)}
+              className="btn-white"
+            >
               Export HTML + JS
             </button>
           </div>
